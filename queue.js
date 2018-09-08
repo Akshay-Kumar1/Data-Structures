@@ -25,17 +25,19 @@ front()
     return "Queue is empty"
     return this.items[0]
 }
-
+len()
+{
+    return this.items.length
+}
+isEmpty()
+{
+    return this.items.length==0;
+}
 printQueue()
 {
     var str = "";
     for(var i = 0; i < this.items.length; i++)
         str += this.items[i] +" ";
-    return str;
+    console.log(str);
 }
 }
-var queue = new Queue()
-queue.enqueue(100)
-console.log(queue.printQueue());
-//queue.dequeue()
-//console.log(queue.printQueue());

@@ -1,5 +1,6 @@
 "use strict";
 var fs = require('fs')
+var prompt = require('prompt-sync')()
 module.exports={
     
 searchList : function(array,toSearch)
@@ -220,6 +221,7 @@ searchInt : function(array,toSearch)
 },
 primeNumbers : function(range)
 {
+    
 
 },
 paranthesis : function(string)
@@ -287,5 +289,140 @@ else
 }
 
 },
+cashCounter: function(persons)
+    {
+        
+class Queue
+{
+    // Array is used to implement a Queue
+    constructor()
+    {
+        this.items = [];
+    }
+           
+enqueue(element)
+{
+    this.items.push(element)
+}
 
+dequeue()
+{
+    if(this.isEmpty())
+    return "underflow"
+    this.items.shift()
+}
+
+front()
+{
+    if(this.isEmpty())
+    return "Queue is empty"
+    return this.items[0]
+}
+size()
+{
+    return this.items.length
+}
+isEmpty()
+{
+    return this.items.length==0;
+}
+printQueue()
+{
+    var str = "";
+    for(var i = 0; i < this.items.length; i++)
+        str += this.items[i] +" ";
+    console.log(str);
+}
+}
+        var queue=new Queue();
+        var balance=2000;
+
+        for(var i=0; i<persons; i++)
+        {
+            queue.enqueue(i);
+        }
+        while(queue.size())
+        {
+            console.log("1.Withdraw") 
+            console.log('2.Deposit')
+            var choice = prompt('Press 1 to Withdraw & 2 to Deposit : ')
+            switch(parseInt(choice))
+            {
+            case 1 :
+                console.log('Current Balance : ' +balance)
+                var withdraw=prompt("Enter the amount : ");
+                if(balance>=withdraw)
+                {
+                    balance=parseInt(balance)-parseInt(withdraw);
+                    console.log("Available Balanace : " + balance + " Rs");
+                }
+                else
+                {
+                    console.log("Balance Low");
+                    process.exit();
+                }
+                break;
+            case 2 : 
+                console.log('Current Balance : ' +balance)
+                var deposit=prompt("Enter the amount to be deposited: ");
+                balance=parseInt(balance) + parseInt(deposit);
+                console.log("Available Balanace= " + balance + " Rs");
+                break;
+
+            default : 
+                console.log("No Such Choice");
+                break;
+            }
+            queue.dequeue();
+        }
+        
+    },
+palindrome : function(string)
+{
+    function Deque()
+{
+ this.stac=new Array();
+ this.popback=function(){
+  return this.stac.pop();
+ }
+ this.pushback=function(item){
+  this.stac.push(item);
+ }
+ this.popfront=function(){
+  return this.stac.shift();
+ }
+ this.pushfront=function(item){
+  this.stac.unshift(item);
+ }
+ this.printDeque=function()
+ {
+     var str = "";
+     for(var i = 0; i < this.stac.length; i++)
+         str += this.stac[i] +" ";
+     return str;
+ }
+ this.len = function()
+ {
+     return this.stac.length
+ }
+}
+var deque=new Deque();
+for(var i=0;i<string.length;i++)
+{
+    deque.pushfront(string[i]);
+}
+var count=0
+while(deque.len())
+{
+    if(deque.popfront()===deque.popback())
+    {
+        count++
+    }
+} 
+if(count==Math.floor(string.length/2))
+console.log('Entered String is a Palindrome')
+else
+console.log('Entered String is not a Palindrome')
+
+},
 }
