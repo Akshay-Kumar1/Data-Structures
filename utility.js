@@ -175,6 +175,24 @@ indexOf(element)
     // not found
     return -1;
 }
+GetNth(index) 
+    {   
+        
+        var  current = this.head; 
+        var count = 0; /* index of Node we are 
+                          currently looking at */
+        while (current != null) 
+        { 
+            if (count == index) 
+                return current.data; 
+            count++; 
+            current = current.next; 
+        } 
+  
+        /* if we get to this line, the caller was asking 
+        for a non-existent element so we assert fail */
+        return 0; 
+    }
 isEmpty()
 {
     return this.size == 0;
@@ -209,7 +227,7 @@ for (var i = 0; i<array.length; i++)
     ll.removeElement(toSearch)
     }
     var res = ll.printList()
-    fs.writeFile("/home/adminsitrator/Documents/akshayk/Data Structures Programs/main/fileint.txt",res)
+    fs.writeFile("/home/adminsitrator/Documents/akshayk/Data Structures Programs/main/file.txt",res)
     
 },
 searchInt : function(array,toSearch)
@@ -424,5 +442,236 @@ console.log('Entered String is a Palindrome')
 else
 console.log('Entered String is not a Palindrome')
 
+},
+
+checkPrime : function(min1,max1) { 
+
+    var size = (Math.floor(max1/100) + 1);
+    var range = Math.floor(min1/100);
+    var min,max
+    let arr1 = [];
+
+    min = min1;
+
+    if(min1 == 0) 
+    {
+
+        max = 99;
+    }
+
+    else 
+    {
+    
+    max = ((range+1)*100)-1;
+
+    }
+
+    for(let index = range+1 ; index <= size;index++) {
+
+        if( (max-min) < 100 && max <= max1) {
+    
+            let prime = new Array();
+    
+            for(let i = min;i <= max;i++) {
+                let count = 0;
+                
+                for(let j = 1;j <= i;j++) 
+                {
+                   
+        
+                    if(i % j == 0) 
+                    {
+        
+                        count++;
+                    }
+                    
+                }
+        
+                if(count <= 2) {
+        
+                    prime.push(i);
+            
+                }
+                
+            } 
+    
+            arr1.push(prime);
+    
+            if(max1 - max < 100) {
+
+                range = Math.floor(min/100);
+    
+                min = (min + ((range+1)*100)-min);
+
+                max = max1-1;
+
+            }
+        
+            else 
+            {
+
+                range = Math.floor(min/100);
+        
+                min = (min + ((range+1)*100)-min);
+        
+                max = max + 100;
+        
+            }
+    
+        }
+             
+    }
+        console.log('\n Prime Numbers in the given range are :')
+        console.log(arr1);
+    
+},
+
+prime : function(min,max) {
+
+    let prime = new Array();
+ 
+    if(min == 0 || min == 1) 
+    {
+        min = 2;
+    }
+
+        for(let i = min;i <= max;i++) {
+            let count = 0;
+            
+            for(let j = 1;j <= i;j++) {
+               
+
+                if(i % j == 0) {
+
+                    count++;
+                }
+                
+            }
+
+            if(count <= 2) {
+
+                prime.push(i);
+            
+            }
+            
+        }
+
+        return prime;
+
+},
+
+anagrams : function(str1,str2) {
+
+    var arr1 = str1.split('');
+    var arr2 = str2.split('');
+    var array1 = this.removeSpace(arr1);
+    var array2 = this.removeSpace(arr2);
+
+    var res1 = array1.sort();
+    var res2 = array2.sort();
+
+    if(res1.length == res2.length) {
+
+        var output = this.compare(res1,res2);
+
+        if(output) {
+            //console.log('given strings are anagram');
+            return true;
+        }
+
+        else {
+           // console.log('given strings are not anagram');
+           return false;
+        }
+
+    }
+
+    else {
+
+        //console.log('given strings are not anagram');
+        return false;
+    }
+},
+removeSpace : function(array) {
+
+    var newArray = [];
+
+for(let i=0;i<array.length;i++) {
+
+    if(array[i] != ' ') {
+        newArray.push(array[i]);
+    }
+
+ }
+
+ return newArray;
+
+} ,
+
+compare : function(array1,array2) {
+
+    let count = 0;
+    
+    for(let i=0;i < array1.length ;i++) {
+        
+        if(array1[i]==array2[i]) {
+
+            count++
+        }
+    }
+
+    return (array1.length == count);
+},
+
+hashing : function(array , number)
+{
+    console.log(array)
+    var array1 = []
+    for (var i=0;i<=array.length-1;i++)
+    {
+        array1[i] = array[i] % 11 
+        
+    }
+    var row =10
+    array1 = new Array(row)
+    /*for(i=0;i<=row;i++)
+    {
+            array1[i] = new Array(coloumns)
+            for(j=0;j<=coloumns;j++)
+            {
+                array1[i][j] = 
+            }/*
+    } 
+    console.log(array1)
+    /*for(var i=0;i<=9;i++)
+    {
+         
+         switch(array2[i])
+         {
+            case '0' : array1[0]=0;
+                        break;
+            case '1' : array1[1]=1;
+                        break;
+            case '2' : array1[2]=2;
+                        break;
+            case '3' : array1[3]=3;
+                        break;
+            case '4' : array1[4]=4;
+                        break;
+            case '5' : array1[5]=5;
+                        break;
+            case '6' : array1[6]=6;
+                        break;
+            case '7' : array1[7]=7;
+                        break;
+            case '8' : array1[8]=8;
+                        break;
+            case '9' : array1[9]=9;
+                        break;
+            case '10' : array1[10]=10;
+                        break;
+        
+         }
+        }*/
 },
 }

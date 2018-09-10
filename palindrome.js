@@ -6,4 +6,4 @@ function palindrome()
     var string=prompt("Enter String : ");
     utility.palindrome(string=string.toLowerCase().replace(/ /g,""));
 }
-palindrome()
+palindrome()      
