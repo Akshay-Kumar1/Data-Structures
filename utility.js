@@ -630,48 +630,7 @@ hashing : function(array , number)
     for (var i=0;i<=array.length-1;i++)
     {
         array1[i] = array[i] % 11 
-        
     }
-    var row =10
-    array1 = new Array(row)
-    /*for(i=0;i<=row;i++)
-    {
-            array1[i] = new Array(coloumns)
-            for(j=0;j<=coloumns;j++)
-            {
-                array1[i][j] = 
-            }/*
-    } 
     console.log(array1)
-    /*for(var i=0;i<=9;i++)
-    {
-         
-         switch(array2[i])
-         {
-            case '0' : array1[0]=0;
-                        break;
-            case '1' : array1[1]=1;
-                        break;
-            case '2' : array1[2]=2;
-                        break;
-            case '3' : array1[3]=3;
-                        break;
-            case '4' : array1[4]=4;
-                        break;
-            case '5' : array1[5]=5;
-                        break;
-            case '6' : array1[6]=6;
-                        break;
-            case '7' : array1[7]=7;
-                        break;
-            case '8' : array1[8]=8;
-                        break;
-            case '9' : array1[9]=9;
-                        break;
-            case '10' : array1[10]=10;
-                        break;
-        
-         }
-        }*/
 },
 }

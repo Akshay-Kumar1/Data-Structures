@@ -13,7 +13,8 @@ let anag = [];
 /* Drier program to test above functions*/
 function main() 
 { 
-    class Node {
+    class Node 
+    {
         // constructor
         constructor(element)
         {
@@ -192,7 +193,7 @@ function main()
             while (current != null) 
             { 
                 if (count == index) 
-                    return current.element; 
+                return current.element; 
                 count++; 
                 current = current.next; 
             } 
