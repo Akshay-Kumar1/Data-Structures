@@ -1,1 +1,1 @@
-hello are you how
+10 20 50

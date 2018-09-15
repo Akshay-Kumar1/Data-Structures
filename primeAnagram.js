@@ -4,7 +4,7 @@ let prompt = require('prompt-sync')();
 let utility = require('/home/adminsitrator/Documents/akshayk/Data Structures Programs/utility/utility.js');
 
 let re = /[a-zA-Z]/g;
-let re2 = /[!@#$%^&*().<>+-/*"'`~]/g;
+let re2 = /[!@#$%^&*().<>+-/*"'`~]/g; // validation of the input
 
 let prime = [];
 
@@ -12,8 +12,8 @@ let prime = [];
 
 function primeAnagram() {
 
-    let num1 = prompt(' Enter Number 1: ');
-    let num2 = prompt(' Enter Number 2: ');
+    let num1 = prompt(' Enter Number 1: '); //min-max range
+    let num2 = prompt(' Enter Number 2: ');//min-max range 
 
 
     if(num1.search(re) == -1 && num2.search(re2) == -1 && num1 >= 0 && num2 > 0 && num1 < 1001 && num2 < 1001) {
@@ -21,7 +21,7 @@ function primeAnagram() {
          num1 = parseInt(num1);
          num2 = parseInt(num2);
         
-         prime = utility.prime(num1,num2);
+         prime = utility.prime(num1,num2);  //call prime function
 
          console.log('\n Prime numbers : \n');
          console.log(prime);
@@ -29,7 +29,8 @@ function primeAnagram() {
          let anagram = [];
          let anagramNot = [];
          var dimension1 , dimension2
-    for(let i=0; i<prime.length-1 ; i++) {
+    for(let i=0; i<prime.length-1 ; i++) 
+    {
 
         for(let j=i+1 ; j< prime.length ; j++) {
 
@@ -37,9 +38,10 @@ function primeAnagram() {
 
             dimension2 = prime[j].toString();
    
-            let res1 = utility.anagrams(dimension1,dimension2);
+            let res1 = utility.anagrams(dimension1,dimension2); //pass parameters into function
    
-            if (res1) {
+            if (res1) 
+            {
                 anagram.push(prime[i]);
                 anagram.push(prime[j]);
 
@@ -68,9 +70,9 @@ function primeAnagram() {
      res.push(anag);
 
      res.push(anagN);
-    console.log('\n Prime numbers in the given range which are anagrams and not anagrams are :\n');
+     console.log('\n Prime numbers in the given range which are anagrams and not anagrams are :\n');
     
-    console.log('\n Dimension 1 --- Prime Anagrams \n \n Dimension 2--- Prime that are not Anagrams\n')
+     console.log('\n Dimension 1 --- Prime Anagrams \n \n Dimension 2--- Prime that are not Anagrams\n')
      console.log(res);
      
      
@@ -84,7 +86,8 @@ function primeAnagram() {
         
         for(let i = 0;i < arr.length; i++){
 
-            if(unique_array.indexOf(arr[i]) == -1){
+            if(unique_array.indexOf(arr[i]) == -1)
+            {
 
                 unique_array.push(arr[i])
             }

@@ -1,10 +1,10 @@
 "use strict"
-//var utility1 = require('/home/adminsitrator/Documents/akshayk/Data Structures Programs/utility/utility.js')
+/**@description : Prints the prime anagrams in the Linked List 
+ * 
+*/
 let prompt = require('prompt-sync')();
 
 let utility = require('/home/adminsitrator/Documents/akshayk/Data Structures Programs/utility/utility.js');
-
-//let utility3 = require('/home/adminsitrator/Documents/akshayk/Data Structures Programs/utility/utility.js');
 
 let re = /[a-zA-Z]/g;
 let re2 = /[!@#$%^&*().<>+-/*"'`~]/g;
@@ -12,7 +12,6 @@ let re2 = /[!@#$%^&*().<>+-/*"'`~]/g;
 let prime = [];
 
 let anag = [];
-/* Drier program to test above functions*/
 function main() 
 {
     class Node {
@@ -250,39 +249,40 @@ function main()
     printStack()
     {
         var str = "";
-        for (var i = 0; i < this.items.length; i++)
+        for (var i = 0; i < this.items.length; i++)  //printing the stack
             str += this.items[i] + " ";
         return str;
         console.log(str)
     }
     }
      
-
     let num1 = prompt(' Number 1: ');
     let num2 = prompt(' Number 2: ');
 
-
-    if(num1.search(re) == -1 && num2.search(re2) == -1 && num1 >= 0 && num2 > 0 && num1 < 1001 && num2 < 1001) {
+    if(num1.search(re) == -1 && num2.search(re2) == -1 && num1 >= 0 && num2 > 0 && num1 < 1001 && num2 < 1001) 
+    {
         
          num1 = parseInt(num1);
          num2 = parseInt(num2);
         
-         prime = utility.prime(num1,num2);
+         prime = utility.prime(num1,num2);  
 
          console.log('Prime are .................');
          console.log(prime);
 
          let anagram = [];
          
-    for(let i=0; i<prime.length-1 ; i++) {
+    for(let i=0; i<prime.length-1 ; i++) 
+    {
 
-        for(let j=i+1 ; j< prime.length ; j++) {
+        for(let j=i+1 ; j< prime.length ; j++) 
+        {
 
             var index1 = prime[i].toString();
 
             var index2 = prime[j].toString();
    
-            let res1 = utility.anagrams(index1,index2);
+            let res1 = utility.anagrams(index1,index2); //call anagram function
    
             if (res1) {
                 anagram.push(prime[i]);
@@ -292,7 +292,6 @@ function main()
         }
     }
 
-    
 
      anag = removeDuplicates(anagram);
 
@@ -321,7 +320,7 @@ function main()
         }
 
     
-    let llist = new LinkedList(); 
+    let llist = new LinkedList();  //creation of LinkedList Object
 
     for(let i = 0; i < anag.length; i++) {
 
@@ -339,7 +338,7 @@ function main()
 
     for(let i = 0; i < anag.length; i++) {
 
-        let temp = llist.GetNth(i);
+        let temp = llist.GetNth(i);   //goes to GetNth index
 
         stack.push(temp);
          
@@ -349,7 +348,7 @@ function main()
     let out = stack.printStack();
     console.log('elements in stack are :'+ out);
 
-    for(let i = anag.length; i > 0 ; i--) {
+    for(let i = anag.length; i > 0 ; i--) {  //upto array length
 
         console.log(stack.pop());
     }

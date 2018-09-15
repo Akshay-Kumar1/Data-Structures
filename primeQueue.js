@@ -230,7 +230,7 @@ class Queue
            
 enqueue(element)
 {
-    this.items.push(element)
+    this.items.push(element)  //pushing elements
 }
 
 dequeue()
